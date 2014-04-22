@@ -1,0 +1,78 @@
+    {
+        "type" : "chart",
+        "datasource" : "faostat",
+        "css" : "faostat",
+        "height" : "300px",
+        "width" : "716px",
+        "item_onchange" : true,
+        "element_onchange" : true,
+        "area_onchange" : true,
+        "year_onchange" : true,
+        "aggregation_onchange" : true,
+        "orderby_onchange" : true,
+        "E_title" : "Top 10 Commodities",
+        "S_title" : "25 principales Productos",
+        "F_title" : "Top 25 Produits",
+        "subtitle" : "",
+        "E_subtitle" : "$_DATE",
+        "S_subtitle" : "$_DATE",
+        "F_subtitle" : "$_DATE",
+        "date_default_label" : "2011",
+        "E_footnote" : null,
+        "object_parameters" : {
+            "series_name" : "Production",
+            "engine" : "highcharts",
+            "keyword" : "FAOSTAT_DEFAULT_DOUBLE_AXES_BAR",
+            "renderTo" : "chart",
+            "title" : "",
+            "credits" : "M = Million, K = Thousand",
+            "yaxis" : {
+                "min" : null,
+                "max" : null,
+                "tickInterval" : null,
+                "title" : null
+            }
+        },
+        "sql" : {
+            "selects" : [
+                {"aggregation" : null, "column" : "I.ItemNameE", "alias" : "ItemName"},
+                {"aggregation" : null, "column" : "E1.ElementNameE", "alias" : "ElementName1"},
+                {"aggregation" : null, "column" : "D1.Value", "alias" : "Value1"},
+                {"aggregation" : null, "column" : "E1.UnitNameE", "alias" : "MU1"},
+                {"aggregation" : null, "column" : "E2.ElementNameE", "alias" : "ElementName2"},
+                {"aggregation" : null, "column" : "D2.Value", "alias" : "Value2"},
+                {"aggregation" : null, "column" : "E2.UnitNameE", "alias" : "MU1"}
+        ],
+        "froms" : [
+                {"column" : "Data", "alias" : "D1"},
+                {"column" : "Data", "alias" : "D2"},
+                {"column" : "Item", "alias" : "I"},
+                {"column" : "Element", "alias" : "E1"},
+                {"column" : "Element", "alias" : "E2"}
+        ],
+        "wheres" : [
+                {"datatype" : "TEXT", "column" : "D1.DomainCode", "operator" : "IN", "value": null, "ins" : ["'QC'","'QL'"]},
+                {"datatype" : "TEXT", "column" : "D2.DomainCode", "operator" : "=", "value": "QV", "ins" : []},
+                {"datatype" : "DATE", "column" : "D1.ItemCode", "operator" : "=", "value": "D2.ItemCode", "ins" : []},
+                {"datatype" : "DATE", "column" : "D1.ItemCode", "operator" : "=", "value": "I.ItemCode", "ins" : []},
+                {"datatype" : "DATE", "column" : "D2.ItemCode", "operator" : "=", "value": "I.ItemCode", "ins" : []},
+                {"datatype" : "DATE", "column" : "D1.ElementCode", "operator" : "=", "value": "E1.ElementCode", "ins" : []},
+                {"datatype" : "DATE", "column" : "D2.ElementListCode", "operator" : "=", "value": "E2.ElementListCode", "ins" : []},
+                {"datatype" : "DATE", "column" : "D1.ElementCode", "operator" : "IN", "value": null, "ins" : [5510]},
+                {"datatype" : "DATE", "column" : "D2.ElementListCode", "operator" : "IN", "value": null, "ins" : [154]},
+                {"datatype" : "DATE", "column" : "I.ItemLevel", "operator" : "IN", "value": null, "ins" : [5]},
+                {"datatype" : "DATE", "column" : "D1.AreaCode", "operator" : "IN", "value": null, "ins" : [2]},
+                {"datatype" : "DATE", "column" : "D2.AreaCode", "operator" : "IN", "value": null, "ins" : [2]},
+                {"datatype" : "DATE", "column" : "D1.Year", "operator" : "IN", "value": null, "ins" : [2011]},
+                {"datatype" : "DATE", "column" : "D2.Year", "operator" : "IN", "value": null, "ins" : [2011]}
+        ],
+        "orderBys" : [
+                {"column" : "D1.Value", "direction" : "DESC"}
+        ],
+        "limit" : "10",
+        "query" : null,
+        "frequency" : null
+        },
+        "export_parameters" : {
+        }
+    }

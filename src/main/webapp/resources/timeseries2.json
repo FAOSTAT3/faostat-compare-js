@@ -1,0 +1,154 @@
+{
+    "objects" : [
+        {
+            "type" : "chart",
+            "datasource" : "faostat",
+            "css" : "faostat",
+            "height" : "250px",
+            "width" : "516px",
+            "item_onchange" : true,
+            "element_onchange" : true,
+            "area_onchange" : true,
+            "year_onchange" : true,
+            "aggregation_onchange" : true,
+            "orderby_onchange" : true,
+            "E_title" : "Top 10 Commodities",
+            "S_title" : "25 principales Productos",
+            "F_title" : "Top 25 Produits",
+            "subtitle" : "",
+            "E_subtitle" : "$_DATE",
+            "S_subtitle" : "$_DATE",
+            "F_subtitle" : "$_DATE",
+            "date_default_label" : "2011",
+            "E_footnote" : null,
+            "object_parameters" : {
+                "series_name" : "Production",
+                "engine" : "highcharts",
+                "keyword" : "FAOSTAT_DEFAULT_DOUBLE_AXES_LINE",
+                "renderTo" : "chart",
+                "title" : "",
+                "credits" : "M = Million, K = Thousand",
+                "yaxis" : {
+                    "min" : null,
+                    "max" : null,
+                    "tickInterval" : null,
+                    "title" : null
+                }
+            },
+            "sqls" : [  {
+                "sql" : {
+                    "selects" : [
+                        {"aggregation" : "NONE", "column" : "D.Year", "alias" : "Year"},
+                        {"aggregation" : "NONE", "column" : "E.ElementListName_$LANG", "alias" : "Area"},
+                        {"aggregation" : "AVG",  "column" : "D.Value", "alias" : "Value"},
+                        {"aggregation" : "NONE", "column" : "E.UnitName_$LANG", "alias" : "Unit"}
+                    ],
+                    "froms" : [
+                        {"column" : "Data", "alias" : "D"},
+                        {"column" : "Area", "alias" : "A"},
+                        {"column" : "Element", "alias" : "E"}
+                    ],
+                    "wheres" : [
+                        {"datatype" : "DATE", "column" : "D.ElementListCode", "operator" : "IN", "value" : null,"ins" : [645]},
+                        {"datatype" : "DATE", "column" : "D.ItemCode", "operator" : "IN", "value" : null, "ins" : [2905]},
+                        {"datatype" : "DATE", "column" : "D.AreaCode", "operator" : "IN", "value" : null, "ins" : [100]},
+                        {"datatype" : "DATE", "column" : "D.Year", "operator" : "IN", "value" : null, "ins" : [1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009]},
+                        {"datatype" : "TEXT", "column" : "D.DomainCode", "operator" : "IN", "value" : null, "ins" : ["'CC'"]},
+                        {"datatype" : "DATE", "column" : "D.AreaCode", "operator" : "=", "value" : "A.AreaCode", "ins" : []},
+                        {"datatype" : "DATE", "column" : "D.ElementCode", "operator" : "=", "value" : "E.ElementCode", "ins" : []}
+                    ],
+                    "groupBys" : [
+                        {"column" : "D.Year"},
+                        {"column" : "E.ElementListName_$LANG", "alias" : "Area"},
+                        {"column" : "E.UnitName_$LANG"}
+                    ],
+                    "orderBys" : [
+                        {"column" : "E.ElementListName_$LANG", "direction" : "ASC"},
+                        {"column" : "D.Year", "direction" : "ASC"}
+                    ],
+                    "limit" : null,
+                    "query" : null,
+                    "frequency" : null
+                }
+            },
+            { "sql" : {
+                    "selects" : [
+                        {"aggregation" : "NONE", "column" : "D.Year", "alias" : "Year"},
+                        {"aggregation" : "NONE", "column" : "A.AreaName_$LANG + '-' + I.ItemName_$LANG + '-' + E.ElementListName_$LANG", "alias" : "Area"},
+                        {"aggregation" : "AVG",  "column" : "D.Value", "alias" : "Value"},
+                        {"aggregation" : "NONE", "column" : "E.UnitName_$LANG", "alias" : "Unit"}
+                    ],
+                    "froms" : [
+                        {"column" : "Data", "alias" : "D"},
+                        {"column" : "Area", "alias" : "A"},
+                        {"column" : "Element", "alias" : "E"},
+                        {"column" : "Item", "alias" : "I"}
+                    ],
+                    "wheres" : [
+                        {"datatype" : "DATE", "column" : "D.AreaCode", "operator" : "=", "value" : "A.AreaCode", "ins" : []},
+                        {"datatype" : "DATE", "column" : "D.ItemCode", "operator" : "=", "value" : "I.ItemCode", "ins" : []},
+                        {"datatype" : "DATE", "column" : "D.ElementCode", "operator" : "=", "value" : "E.ElementCode", "ins" : []},
+                        {"datatype" : "DATE", "column" : "D.ElementListCode", "operator" : "IN", "value" : null,"ins" : [641,645]},
+                        {"datatype" : "DATE", "column" : "D.ItemCode", "operator" : "IN", "value" : null, "ins" : [2905]},
+                        {"datatype" : "DATE", "column" : "D.AreaCode", "operator" : "IN", "value" : null, "ins" : [2,4,5,100,45,6,7]},
+                        {"datatype" : "DATE", "column" : "D.Year", "operator" : "IN", "value" : null, "ins" : [1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009]},
+                        {"datatype" : "TEXT", "column" : "D.DomainCode", "operator" : "IN", "value" : null, "ins" : ["'CC'"]}
+                    ],
+                    "groupBys" : [
+                        {"column" : "D.Year"},
+                        {"column" : "A.AreaName_$LANG + '-' + I.ItemName_$LANG + '-' + E.ElementListName_$LANG"},
+                        {"column" : "E.UnitName_$LANG"}
+                    ],
+                    "orderBys" : [
+                        {"column" : "A.AreaName_$LANG + '-' + I.ItemName_$LANG + '-' + E.ElementListName_$LANG", "direction" : "ASC"},
+                        {"column" : "D.Year", "direction" : "ASC"}
+                    ],
+                    "limit" : null,
+                    "query" : null,
+                    "frequency" : null
+                }
+            },
+
+                {  "sql" : {
+                        "selects" : [
+                                {"aggregation" : "NONE", "column" : "D.Year", "alias" : "Year"},
+                                {"aggregation" : "NONE", "column" : "I.ItemNameE", "alias" : "item"},
+                                {"aggregation" : "AVG",  "column" : "D.Value", "alias" : "Value"},
+                                {"aggregation" : "NONE", "column" : "E.UnitNameE", "alias" : "Unit"}
+                        ],
+                        "froms" : [
+                                {"column" : "Data", "alias" : "D"},
+                                {"column" : "Area", "alias" : "A"},
+                                {"column" : "Element", "alias" : "E"},
+                                {"column" : "Item", "alias" : "I"}
+                        ],
+                        "wheres" : [
+                                {"datatype" : "DATE", "column" : "D.ElementCode", "operator" : "IN", "value" : null,"ins" : [5525]},
+                                {"datatype" : "DATE", "column" : "D.ItemCode", "operator" : "IN", "value" : null, "ins" : [27]},
+                                {"datatype" : "DATE", "column" : "D.AreaCode", "operator" : "IN", "value" : null, "ins" : [100]},
+                                {"datatype" : "DATE", "column" : "D.Year", "operator" : "IN", "value" : null, "ins" : [1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009]},
+                                {"datatype" : "TEXT", "column" : "D.DomainCode", "operator" : "IN", "value" : null, "ins" : ["'QC'"]},
+                                {"datatype" : "DATE", "column" : "D.AreaCode", "operator" : "=", "value" : "A.AreaCode", "ins" : []},
+                                {"datatype" : "DATE", "column" : "D.ElementCode", "operator" : "=", "value" : "E.ElementCode", "ins" : []},
+                                {"datatype" : "DATE", "column" : "D.ItemCode", "operator" : "=", "value" : "I.ItemCode", "ins" : []}
+                        ],
+                        "groupBys" : [
+                                {"column" : "D.Year"},
+                                {"column" : "I.ItemNameE"},
+                                {"column" : "E.UnitNameE"}
+                        ],
+                        "orderBys" : [
+                                {"column" : "I.ItemNameE", "direction" : "ASC"},
+                                {"column" : "D.Year", "direction" : "ASC"}
+                        ],
+                        "limit" : null,
+                        "query" : null,
+                        "frequency" : null
+                        }
+                }
+            ],
+            "export_parameters" : {
+            }
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+{
+    "selectors" : [
+        {
+        "type" : "dropdown",
+        "E_label" : "Areas",
+        "E_help" : "n.a.",
+        "keyword" : "area",
+        "sql" : {
+        "selects" : [
+             { "aggregation" : null, "column" : "A.AreaCode", "alias" : "Code"},
+             { "aggregation" : null, "column" : "A.AreaName_$LANG", "alias" : "Name" }
+        ],
+        "froms" : [
+            { "column" : "DomainAreaGroupArea", "alias" : "A" }
+        ],
+        "wheres" : [
+            { "datatype" : "TEXT","column" : "A.DomainCode","operator" : "=","value" : "QC","ins" : []}
+        ],
+        "groupBys" : [
+            {"column" : "A.AreaCode"},
+            {"column" : "A.AreaName_$LANG"}
+        ],
+        "orderBys" : [
+            {"column" : "A.AreaName_$LANG","direction" : "ASC"}
+        ],
+        "limit" : null,
+        "query" : null,
+        "frequency" : null
+        },
+        "default_code" : "2",
+        "blacklist" : [],
+        "start_date" : null,
+        "end_date" : null,
+        "default_date" : null
+    },
+    {
+    "type" : "dropdown_year",
+    "E_label" : "Year",
+    "E_help" : "n.a.",
+    "keyword" : "year",
+    "sql" : {
+    "selects" : [
+    { "aggregation" : "NONE", "column" : "D.StartYear", "alias" : "StartYear" },
+    { "aggregation" : "NONE","column" : "D.EndYear","alias" : "EndYear"}
+    ],
+    "froms" : [
+    {"column" : "Domain","alias" : "D"}
+    ],
+    "wheres" : [
+    {"datatype" : "TEXT","column" : "D.DomainCode","operator" : "=","value" : "QC","ins" : []}
+    ],
+    "limit" : null,
+    "query" : null,
+    "frequency" : null
+    },
+    "default_code" : 2011,
+    "blacklist" : [],
+    "start_date" : null,
+    "end_date" : null,
+    "default_date" : null
+    },
+    {
+    "type" : "dropdown_orderby",
+    "keyword" : "orderby",
+    "E_label" : "Sorting",
+    "E_help" : "n.a.",
+    "default_code" : "D1.Value",
+    "codes" : [
+    { "code": "D1.Value", "E_label": "Quantity", "F_label": "Quantité", "S_label": "Cantidad" },
+    { "code": "D2.Value", "E_label": "Value", "F_label": "Valeur", "S_label": "Valor" }
+    ]
+    }
+    ]
+}

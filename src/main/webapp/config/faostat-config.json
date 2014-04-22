@@ -1,0 +1,11 @@
+{
+    "datasource" :              "faostat2",
+    "baseurl" :                 "fenix.fao.org",
+    "baseurl_dbms" :            "fenix.fao.org",
+    "baseurl_r" :               "fenix.fao.org",
+    "baseurl_maps" :            "fenix.fao.org",
+    "baseurl_bletchley" :       "fenixapps.fao.org",
+    "baseurl_images" :          "http://168.202.23.99:8080/faostat-browse-js/images/",
+	"width_browse_by_domain" : "750",
+	"width_browse_by_country" : "960"
+}

@@ -1,0 +1,36 @@
+{
+    "objects" : [
+        {
+            "sqls" : [
+
+                { "sql" : {
+                    "selects" : [
+                        {"aggregation" : "NONE", "column" : "A.AreaName_$LANG", "alias" : "Area"},
+                        {"aggregation" : "NONE", "column" : "I.ItemName_$LANG", "alias" : "Item"},
+                        {"aggregation" : "NONE", "column" : "E.ElementName_$LANG",  "alias" : "Element"},
+                        {"aggregation" : "NONE", "column" : "D.Year", "alias" : "Year"},
+                        {"aggregation" : "NONE", "column" : "D.Value", "alias" : "Value"},
+                        {"aggregation" : "NONE", "column" : "E.UnitName_$LANG", "alias" : "Unit"}
+                    ],
+                    "froms" : [
+                        {"column" : "Data", "alias" : "D"},
+                        {"column" : "Area", "alias" : "A"},
+                        {"column" : "Element", "alias" : "E"},
+                        {"column" : "Item", "alias" : "I"}
+                    ],
+                    "wheres" : [
+                        {"datatype" : "DATE", "column" : "D.AreaCode", "operator" : "=", "value" : "A.AreaCode", "ins" : []},
+                        {"datatype" : "DATE", "column" : "D.ItemCode", "operator" : "=", "value" : "I.ItemCode", "ins" : []},
+                        {"datatype" : "DATE", "column" : "D.ElementCode", "operator" : "=", "value" : "E.ElementCode", "ins" : []}
+                    ],
+                    "limit" : null,
+                    "query" : null,
+                    "frequency" : null
+                }
+                }
+            ],
+            "export_parameters" : {
+            }
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "objects" : [
+        {
+            "sqls" : [
+
+                { "sql" : {
+                    "selects" : [
+                        {"aggregation" : "NONE", "column" : "D.AreaCode", "alias" : "AreaCode"},
+                        {"aggregation" : "NONE", "column" : "A.AreaName_$LANG", "alias" : "AreaName"},
+                        {"aggregation" : "AVG", "column" : "D.Value", "alias" : "Value"},
+                        {"aggregation" : "NONE", "column" : "E.UnitName_$LANG", "alias" : "Unit"}
+                    ],
+                    "froms" : [
+                        {"column" : "Data", "alias" : "D"},
+                        {"column" : "Area", "alias" : "A"},
+                        {"column" : "Element", "alias" : "E"}
+                    ],
+                    "wheres" : [
+                        {"datatype" : "DATE", "column" : "D.AreaCode", "operator" : "=", "value" : "A.AreaCode", "ins" : []},
+                        {"datatype" : "DATE", "column" : "D.ElementCode", "operator" : "=", "value" : "E.ElementCode", "ins" : []},
+                        {"datatype" : "DATE", "column" : "A.AreaLevel", "operator" : "=","value": "5","ins": []},
+                        {"datatype" : "DATE", "column" : "D.Value", "operator": "!=", "value": "0","ins": [] }
+                    ],
+                    "groupBys": [
+                        {"column": "D.AreaCode"},
+                        {"column": "A.AreaName_$LANG"},
+                        {"column": "E.UnitName_$LANG"}
+                    ],
+                    "limit" : null,
+                    "query" : null,
+                    "frequency" : null
+                }
+                }
+            ],
+            "export_parameters" : {
+            }
+        }
+    ]
+}

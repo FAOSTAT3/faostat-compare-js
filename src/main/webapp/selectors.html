@@ -1,0 +1,131 @@
+<div id='selector_main_REPLACE' class='selector-main'>
+    <div id='selector_disable_REPLACE'></div>
+
+    <!--compare-disable second-level-->
+
+    <!--header-->
+    <div id='selector_header_REPLACE' >
+
+        <div id='compare_title_REPLACE' class='compare-title'></div>
+        <!--<div id='compare_title_index_REPLACE' class='compare-title-index'></div>-->
+        <div id='compare_title_showhide_summary_REPLACE' class='compare-showhide-summary'></div>
+        <div id='compare_showhide_REPLACE' class='compare-showhide compare-showhide-up-none third-level'></div>
+        <div id='compare_enabledisable_REPLACE' class='compare-enabledisable compare-enable-none third-level'></div>
+        <div id='compare_remove_REPLACE' class='compare-remove compare-remove-none third-level'></div>
+    </div>
+
+    <!--selectors-->
+    <div id='selector_REPLACE' class="selector-content">
+        <div class='compare-selector'>
+            <div id='selector_group_label_REPLACE' class='compare-label'></div>
+            <div id='selector_group_REPLACE' class='compare-dropdown'></div>
+        </div>
+
+        <div class='compare-selector'>
+            <div id='selector_domain_label_REPLACE'  class='compare-label'></div>
+            <div id='selector_domain_REPLACE' class='compare-dropdown'></div>
+        </div>
+
+        <div class='compare-selector syncbtn'>
+            <div id='selector_area_label_REPLACE' class='compare-label'></div>
+            <div id='selector_area_REPLACE' class='compare-dropdown'></div>
+            <div id='selector_area_synchronize_REPLACE' class='compare-syncronize'></div>
+        </div>
+
+        <div class='compare-selector syncbtn'>
+            <div id='selector_item_label_REPLACE' class='compare-label'></div>
+            <div id='selector_item_REPLACE' class='compare-dropdown'></div>
+            <div id='selector_item_synchronize_REPLACE' class='compare-syncronize'></div>
+        </div>
+
+        <div class='compare-selector syncbtn'>
+            <div id='selector_elementlist_label_REPLACE' class='compare-label'></div>
+            <div id='selector_elementlist_REPLACE' class='compare-dropdown'></div>
+            <div id='selector_elementlist_synchronize_REPLACE' class='compare-syncronize'></div>
+        </div>
+
+
+        <!--                             <div id='selector_year_label_REPLACE'></div>
+                                    <div id='selector_year_REPLACE'></div>
+                                    <div id='selector_year_synchronize_REPLACE'>syncronize</div>-->
+
+        <!-- <td>
+            <div id='selector_greaterthan_REPLACE'>greater than</div>
+        </td>
+        <td>
+            <div id='selector_minorof_REPLACE'>minor of</div>
+        </td> -->
+
+        <!-- <td>
+
+        <td>
+            the user con select if a serie is a bar or a column, a line, a spline etc
+            <div id='selector_type_of_the_serie_REPLACE'></div>
+        </td> -->
+
+        <!--            <input type="button" value="disable" id='selector_disable_REPLACE' />
+                    <input type="button" value="remove" id='selector_remove_REPLACE' />-->
+    </div>
+
+    <!--<div id='compare_selectors_summary_showhide_REPLACE'></div>-->
+
+    <div id='compare_selectors_summary_REPLACE' class="compare-summary">
+        <!--        <div id='selector_group_title_REPLACE' class='compare-summary-title'>GROUP  </div>
+                    <div id='selector_group_summary_REPLACE' class='compare-summary-element'></div>
+                <br/>
+
+                <div id='selector_domain_title_REPLACE' class='compare-summary-title'>DOMAIN </div>
+                    <div id='selector_domain_summary_REPLACE' class='compare-summary-element'></div>
+                <br/>-->
+
+        <div id='selector_area_title_REPLACE' class='compare-summary-title'></div>
+        <div id='selector_area_summary_REPLACE' class='compare-summary-element'></div>
+
+        <br/>
+        <div id='selector_item_title_REPLACE' class='compare-summary-title'></div>
+        <div id='selector_item_summary_REPLACE' class='compare-summary-element'></div>
+        <br/>
+
+        <div id='selector_element_title_REPLACE' class='compare-summary-title'></div>
+        <div id='selector_elementlist_summary_REPLACE' class='compare-summary-element'></div>
+
+        <!--<div id='selector_year_summary_REPLACE'></div>-->
+    </div>
+
+    <div style='position: relative; top:3px;' class='third-level'><hr></div>
+</div>
+
+<!-- adding labels -->
+<script>
+    document.getElementById('selector_group_label_REPLACE').innerHTML = $.i18n.prop('_group');
+    document.getElementById('selector_domain_label_REPLACE').innerHTML = $.i18n.prop('_domain');
+//    document.getElementById('selector_year_label_REPLACE').innerHTML = $.i18n.prop('_years');
+    document.getElementById('selector_item_label_REPLACE').innerHTML = $.i18n.prop('_item');
+    document.getElementById('selector_elementlist_label_REPLACE').innerHTML = $.i18n.prop('_element');
+    document.getElementById('selector_area_label_REPLACE').innerHTML = $.i18n.prop('_area');
+
+    document.getElementById('selector_area_title_REPLACE').innerHTML = $.i18n.prop('_area');
+    document.getElementById('selector_item_title_REPLACE').innerHTML = $.i18n.prop('_item');
+    document.getElementById('selector_element_title_REPLACE').innerHTML = $.i18n.prop('_element');
+
+    document.getElementById('compare_title_showhide_summary_REPLACE').innerHTML = $.i18n.prop('_summary');
+    document.getElementById('compare_title_showhide_summary_REPLACE').title = $.i18n.prop('_summary_tooltip');
+    $('#compare_title_showhide_summary_REPLACE').powerTip({placement: 'e'});
+
+    document.getElementById('compare_showhide_REPLACE').title = $.i18n.prop('_showHideSelector');
+    $("#compare_showhide_REPLACE").powerTip({placement: 's'});
+
+    document.getElementById('compare_enabledisable_REPLACE').title = $.i18n.prop('_enableDisableSelector');
+    $("#compare_enabledisable_REPLACE").powerTip({placement: 's'});
+
+    document.getElementById('compare_remove_REPLACE').title = $.i18n.prop('_removeSelector');
+    $("#compare_remove_REPLACE").powerTip({placement: 's'});
+
+    document.getElementById('selector_area_synchronize_REPLACE').title = $.i18n.prop('_synchronizeAreasTooltip');
+    $("#selector_area_synchronize_REPLACE").powerTip({placement: 's'});
+    document.getElementById('selector_item_synchronize_REPLACE').title = $.i18n.prop('_synchronizeItemsTooltip');
+    $("#selector_item_synchronize_REPLACE").powerTip({placement: 's'});
+    document.getElementById('selector_elementlist_synchronize_REPLACE').title = $.i18n.prop('_synchronizeElementsTooltip');
+    $("#selector_elementlist_synchronize_REPLACE").powerTip({placement: 's'});
+
+</script>

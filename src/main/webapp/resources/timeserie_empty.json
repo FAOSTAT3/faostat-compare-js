@@ -1,0 +1,49 @@
+{
+    "objects" : [
+        {
+            "type" : "chart",
+            "datasource" : "faostat",
+            "css" : "faostat",
+            "height" : "400px",
+            "width" : "960px",
+            "item_onchange" : true,
+            "element_onchange" : true,
+            "area_onchange" : true,
+            "year_onchange" : true,
+            "aggregation_onchange" : true,
+            "orderby_onchange" : true,
+            "E_title" : "",
+            "S_title" : "",
+            "F_title" : "",
+            "subtitle" : "",
+            "E_subtitle" : "",
+            "S_subtitle" : "",
+            "F_subtitle" : "",
+            "date_default_label" : "",
+            "E_footnote" : null,
+            "object_parameters" : {
+                "series_name" : "Production",
+                "engine" : "highcharts",
+                "keyword" : "FAOSTAT_DEFAULT_DOUBLE_AXES_LINE",
+                "renderTo" : "chart",
+                "title" : "",
+                "credits" : "M = Million, K = Thousand",
+                "yaxis" : {
+                    "min" : null,
+                    "max" : null,
+                    "tickInterval" : null,
+                    "title" : null
+                },
+                "xaxis": {
+                    "rotation": -45,
+                    "fontSize": "9px"
+                }
+            },
+            "sqls" : [
+
+            ],
+            "export_parameters" : {
+            }
+        }
+    ]
+}
