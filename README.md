@@ -1,4 +1,4 @@
-faostat-search-js
+faostat-compare-js
 =================
 
-FAOSTAT Search
+FAOSTAT Compare
