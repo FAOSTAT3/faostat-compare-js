@@ -7,7 +7,7 @@ if (!window.FAOSTATCompare) {
          It can't be stored in the JSON configuration file because it is
          used to locate the JSON configuration file.
          */
-        prefix : 'http://168.202.28.214:8085/faostat-compare-js/',
+        prefix : 'http://168.202.28.214:8080/faostat-compare-js/',
 
         lang : 'E',
 
@@ -77,6 +77,7 @@ if (!window.FAOSTATCompare) {
                 FAOSTATCompare.width_browse_by_domain = data.width_browse_by_domain;
                 FAOSTATCompare.width_browse_by_country = data.width_browse_by_country;
                 FAOSTATCompare.baseurl_images   = data.baseurl_images;
+                FAOSTATCompare.I18N_URL = data.I18N_URL;
 
                 // GET Single Search HTML
                 $.ajax({
@@ -101,13 +102,13 @@ if (!window.FAOSTATCompare) {
                         $('#container').load(FAOSTATCompare.prefix + 'compare.html', function() {
                             $.i18n.properties({
                                 name: 'I18N',
-                                path: FAOSTATCompare.prefix + 'I18N/',
+                                path: FAOSTATCompare.I18N_URL,
                                 mode: 'both',
                                 language: I18NLang,
                                 callback: function() {
                                     document.getElementById('subtitle_text').innerHTML = $.i18n.prop('_selectors');
 
-                                    document.getElementById('pageTitle').innerHTML = $.i18n.prop('_compare');
+                                    document.getElementById('pageTitle').innerHTML = $.i18n.prop('_compare_data');
                                     document.getElementById('compare_button_add_text').innerHTML = $.i18n.prop('_addselector');
                                     document.getElementById('compare_button_add_text').title = $.i18n.prop('_addselectorTooltip');
                                     $("#compare_button_add_text").powerTip({placement: 'w'});
