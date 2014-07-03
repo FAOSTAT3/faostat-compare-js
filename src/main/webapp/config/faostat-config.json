@@ -1,5 +1,5 @@
 {
-    "datasource" :              "faostat2",
+    "datasource" :              "faostat",
     "baseurl" :                 "faostat3.fao.org",
     "baseurl_dbms" :            "faostat3.fao.org",
     "baseurl_r" :               "faostat3.fao.org",

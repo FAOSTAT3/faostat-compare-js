@@ -215,7 +215,7 @@ var CompareUIBuilderSelectors = function() {
                         // this is used as blacklist
                         // TODO: make a configurable blacklist file
                         // TODO: remove trade matrix etc
-                        if ( json[i][0] != 'Z') {
+                        if ( json[i][0] != 'Z' ) {
                             if ( current != json[i][0]) {
                                 current =  json[i][0];
                                 var tmp = {};
@@ -224,6 +224,7 @@ var CompareUIBuilderSelectors = function() {
                                 data.push(tmp);
                             }
                         }
+
                     }
 
 
@@ -292,7 +293,6 @@ var CompareUIBuilderSelectors = function() {
             data.cssFilename = 'faostat';
             data.valueIndex = '1';
 
-
             var _this = this;
             $.ajax({
                 type : 'POST',
@@ -306,9 +306,13 @@ var CompareUIBuilderSelectors = function() {
                     var selectedIndex = 0;
                     for (var i = 0 ; i < json.length ; i++) {
                         var tmp = {};
-                        tmp.code = json[i][0];
-                        tmp.label = json[i][1];
-                        data.push(tmp);
+                        // TODO: make a configurable blacklist file
+                        // TODO: remove trade matrix etc
+                        if ( json[i][0] != 'HS' ) {
+                            tmp.code = json[i][0];
+                            tmp.label = json[i][1];
+                            data.push(tmp);
+                        }
                     }
 
                     $('#selector_domain_' + _this.suffix).jqxComboBox({  source: data, selectedIndex: selectedIndex, width: _this.ddWidth, height: _this.ddHeight,theme: FAOSTATCompare.theme});

@@ -56,9 +56,6 @@ if (!window.FAOSTATCompare) {
             if (lang != null && lang.length > 0) {
                 FAOSTATCompare.lang = lang;
             }
-            var tmp = $.url().param('lang');
-            if (tmp != null && tmp.length > 0)
-                FAOSTATCompare.lang = tmp;
 
             /**
              * Group and Domain for the tree
@@ -310,9 +307,6 @@ if (!window.FAOSTATCompare) {
                     var j = $.parseJSON(json);
                     sql.objects[0].sqls[0].sql.wheres.push(j);
                 }          **/
-
-
-
             return sql;
         },
 
