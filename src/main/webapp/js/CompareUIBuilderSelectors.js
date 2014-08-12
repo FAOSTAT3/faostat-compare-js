@@ -352,12 +352,12 @@ var CompareUIBuilderSelectors = function() {
 
         populateItem: function (domaincode) {
 
-            var query = "SELECT I.Itemcode, I.Itemname" + FAOSTATCompare.lang + ", DI.Ord " +
+            var query = "SELECT I.Itemcode, I.Itemname" + FAOSTATCompare.lang + ", DI.Ord, DI.Level " +
                 " FROM DomainItem DI, Item I " +
                 " WHERE DI.ItemCode = I.ItemCode " +
                 " AND DI.DomainCode IN('" + domaincode + "') " +
-                " GROUP BY DI.Ord, I.Itemcode, I.Itemname" + FAOSTATCompare.lang +
-                " ORDER BY DI.Ord, I.Itemname"  + FAOSTATCompare.lang;
+                " GROUP BY DI.Level, DI.Ord, I.Itemcode, I.Itemname" + FAOSTATCompare.lang +
+                " ORDER BY DI.Level DESC,  DI.Ord ASC, I.Itemname"  + FAOSTATCompare.lang;
             query = query.replace(/\n/g, ' ');
 
             var data = {};
@@ -583,7 +583,7 @@ var CompareUIBuilderSelectors = function() {
             if ( this.isEnabled )
                 $("#selector_disable_" + this.suffix).removeClass('compare-disable second-level');
             else
-                $("#selector_disable_" + this.suffix).addClass(' compare-disable second-level');
+                $("#selector_disable_" + this.suffix).addClass('compare-disable second-level');
 
 
             this.showHideSelectorContentHover(true);
