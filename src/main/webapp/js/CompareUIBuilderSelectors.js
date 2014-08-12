@@ -38,9 +38,9 @@ var CompareUIBuilderSelectors = function() {
 
 
             // this on load the summary
-/*            $('#compare_selectors_summary_' + suffix).load(FAOSTATCompare.prefix + 'selector_summary.html', function() {
-                _this.replaceIDs(suffix);
-            });*/
+            /*            $('#compare_selectors_summary_' + suffix).load(FAOSTATCompare.prefix + 'selector_summary.html', function() {
+             _this.replaceIDs(suffix);
+             });*/
         },
 
         replaceIDs: function(suffix) {
@@ -78,9 +78,9 @@ var CompareUIBuilderSelectors = function() {
 
 
             $("#selector_main_" + suffix).hover(function () {
-                     _this.showHideSelectorContentHover(true);
-                }, function () {
-                     _this.showHideSelectorContentHover(false);
+                _this.showHideSelectorContentHover(true);
+            }, function () {
+                _this.showHideSelectorContentHover(false);
             });
 
 
@@ -93,8 +93,8 @@ var CompareUIBuilderSelectors = function() {
             });
 
 
-/*            $('#selector_minorof_' + suffix).jqxNumberInput({ width: '100', theme: FAOSTATCompare.theme });
-            $('#selector_greaterthan_' + suffix).jqxNumberInput({ width: '100', theme: FAOSTATCompare.theme });*/
+            /*            $('#selector_minorof_' + suffix).jqxNumberInput({ width: '100', theme: FAOSTATCompare.theme });
+             $('#selector_greaterthan_' + suffix).jqxNumberInput({ width: '100', theme: FAOSTATCompare.theme });*/
 
             // syncronization
             $('#selector_area_synchronize_' + suffix).on('click', function () {_this.synchronizeObject('selector_area');});
@@ -308,7 +308,7 @@ var CompareUIBuilderSelectors = function() {
                         var tmp = {};
                         // TODO: make a configurable blacklist file
                         // TODO: remove trade matrix etc
-                        if ( json[i][0] != 'HS' ) {
+                        if ( json[i][0] != 'HS' && json[i][0] != 'TM' && json[i][0] != 'FT') {
                             tmp.code = json[i][0];
                             tmp.label = json[i][1];
                             data.push(tmp);
@@ -352,12 +352,12 @@ var CompareUIBuilderSelectors = function() {
 
         populateItem: function (domaincode) {
 
-            var query = "SELECT I.Itemcode, I.Itemname" + FAOSTATCompare.lang +
+            var query = "SELECT I.Itemcode, I.Itemname" + FAOSTATCompare.lang + ", DI.Ord " +
                 " FROM DomainItem DI, Item I " +
                 " WHERE DI.ItemCode = I.ItemCode " +
                 " AND DI.DomainCode IN('" + domaincode + "') " +
-                " GROUP BY I.Itemcode, I.Itemname" + FAOSTATCompare.lang +
-                " ORDER BY I.Itemname"  + FAOSTATCompare.lang;
+                " GROUP BY DI.Ord, I.Itemcode, I.Itemname" + FAOSTATCompare.lang +
+                " ORDER BY DI.Ord, I.Itemname"  + FAOSTATCompare.lang;
             query = query.replace(/\n/g, ' ');
 
             var data = {};
@@ -391,12 +391,12 @@ var CompareUIBuilderSelectors = function() {
 
         populateElemenList: function (domaincode) {
 
-            var query = "SELECT E.elementlistcode, E.elementlistname" + FAOSTATCompare.lang +
+            var query = "SELECT E.elementlistcode, E.elementlistname" + FAOSTATCompare.lang + ", DE.Ord " +
                 " FROM DomainElement DE, Element E " +
                 " WHERE DE.elementcode = E.elementcode " +
                 " AND DE.DomainCode IN('" + domaincode + "') " +
-                " GROUP BY E.elementlistcode, E.elementlistname" + FAOSTATCompare.lang +
-                " ORDER BY E.elementlistname"  + FAOSTATCompare.lang;
+                " GROUP BY DE.Ord, E.elementlistcode, E.elementlistname" + FAOSTATCompare.lang +
+                " ORDER BY DE.Ord, E.elementlistname"  + FAOSTATCompare.lang;
             query = query.replace(/\n/g, ' ');
 
             var data = {};
@@ -430,11 +430,11 @@ var CompareUIBuilderSelectors = function() {
 
         populateCountries: function (domaincode) {
 
-            var query = "SELECT DISTINCT A.Areacode, A.Areaname" + FAOSTATCompare.lang +
+            var query = "SELECT DISTINCT A.Areacode, A.Areaname" + FAOSTATCompare.lang + ", DA.Level " +
                 " FROM DomainAreaList AS DA, Area AS A  " +
                 " WHERE DA.DomainCode IN('" + domaincode + "') " +
                 " AND (A.AreaCode = DA.AreaCode )" +
-                " ORDER BY A.Areaname"  + FAOSTATCompare.lang + " ASC";
+                " ORDER BY DA.Level, A.Areaname"  + FAOSTATCompare.lang;
             query = query.replace(/\n/g, ' ');
 
             var data = {};
