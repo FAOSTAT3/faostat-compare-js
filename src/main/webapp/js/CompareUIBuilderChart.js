@@ -11,12 +11,12 @@ var CompareUIBuilderChart = function() {
                 '</div>' +
 
                 '<div class="obj-box-icons">' +
-//                    '<div class="obj-box-icon" id="obj_export_REPLACE"><img src="' + FAOSTATCompare.baseurl_images +'infoIcon.png"></div>' +
-                    '<div class="obj-box-icon chart-line" id="obj_line_REPLACE"></div>' +
-                     '<div class="obj-box-icon chart-bar-vert" id="obj_column_REPLACE"></div>' +
-                    '<div class="obj-box-icon chart-bar-hor" id="obj_bar_REPLACE"></div>' +
-                    '<div class="obj-box-icon chart-area" id="obj_area_REPLACE"></div>' +
-                    '<div class="obj-box-icon chart-spline" id="obj_spline_REPLACE"></div>' +
+//                    '<div class="obj-box-icon" id="obj_bar_REPLACE"><i class="fa fa-bar-chart fa-2x"></i></div>' +
+                    '<div class="obj-box-icon" id="obj_area_REPLACE"><i style="margin-right:10px;margin-left:3px;" class="fa fa-area-chart fa-lg"></i></div>' +
+                    '<div class="obj-box-icon" id="obj_column_REPLACE"><i style="margin-left:3px;" class="fa fa-bar-chart fa-lg"></i></div>' +
+                    '<div class="obj-box-icon" id="obj_line_REPLACE"><i style="margin-left:3px;" class="fa fa-line-chart fa-lg"></i></div>' +
+
+//                    '<div class="obj-box-icon chart-spline" id="obj_spline_REPLACE"></div>' +
                 '</div>' +
 
             '</div>' +
